@@ -1,0 +1,140 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+}
+
+.statCard {
+  background-color: $card-bg;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  @include card-shadow;
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  .statIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    @include flex-center;
+    font-size: 1.5rem;
+  }
+
+  .statInfo {
+    h3 {
+      font-size: 0.9rem;
+      color: $secondary-color;
+      margin-bottom: $spacing-xs;
+      font-weight: 500;
+    }
+    p {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: $text-color;
+    }
+  }
+
+  &.primary .statIcon { background-color: rgba($primary-color, 0.1); color: $primary-color; }
+  &.success .statIcon { background-color: rgba($success-color, 0.1); color: $success-color; }
+  &.info .statIcon { background-color: rgba(#17a2b8, 0.1); color: #17a2b8; }
+  &.danger .statIcon { background-color: rgba($danger-color, 0.1); color: $danger-color; }
+}
+
+.dashboardContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-lg;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recentActivity, .upcomingAppointments {
+  background-color: $card-bg;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  @include card-shadow;
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: $spacing-md;
+    color: $text-color;
+  }
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.activityItem {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.activityDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  margin-top: 5px;
+}
+
+.activityText {
+  p { margin-bottom: $spacing-xs; }
+  span {
+    font-size: 0.8rem;
+    color: $secondary-color;
+  }
+}
+
+.appointmentTable {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+
+  th {
+    font-weight: 600;
+    color: $secondary-color;
+    background-color: rgba($background-color, 0.5);
+  }
+
+  td {
+    color: $text-color;
+  }
+}
+
+.statusConfirmed {
+  background-color: rgba($success-color, 0.1);
+  color: $success-color;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.statusPending {
+  background-color: rgba(#ffc107, 0.1);
+  color: darken(#ffc107, 20%);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}

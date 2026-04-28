@@ -1,0 +1,116 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.analytics {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.header {
+  h2 { font-size: 1.5rem; color: $text-color; margin-bottom: $spacing-xs; }
+  p { color: $secondary-color; font-size: 0.9rem; }
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: $spacing-lg;
+
+  @include respond-to('sm') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background-color: $card-bg;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  @include card-shadow;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+
+  h3 {
+    font-size: 1.1rem;
+    color: $text-color;
+  }
+}
+
+.mockChartArea {
+  flex: 1;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: $spacing-sm;
+}
+
+.barContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 200px;
+  border-bottom: 2px solid $border-color;
+  border-left: 2px solid $border-color;
+  padding-bottom: $spacing-xs;
+}
+
+.bar {
+  width: 10%;
+  background-color: rgba($primary-color, 0.8);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.chartLabels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  color: $secondary-color;
+}
+
+.pieChart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #007bff 0% 35%,
+    #28a745 35% 60%,
+    #ffc107 60% 85%,
+    #dc3545 85% 100%
+  );
+  margin: 0 auto $spacing-lg;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: 0.9rem;
+  color: $secondary-color;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}

@@ -1,0 +1,184 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: $background-color;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: $card-bg;
+  border-right: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-md 0;
+  position: fixed;
+  height: 100vh;
+
+  @include respond-to('md') {
+    width: 80px;
+    h2, span { display: none; }
+  }
+}
+
+.logo {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: 0 $spacing-lg;
+  margin-bottom: $spacing-xl;
+
+  h2 {
+    color: $primary-color;
+    font-size: 1.5rem;
+  }
+
+  @include respond-to('md') {
+    padding: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: 0 $spacing-md;
+  flex: 1;
+
+  @include respond-to('md') {
+    padding: 0 $spacing-sm;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  color: $secondary-color;
+  font-weight: 500;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.05);
+    color: $primary-color;
+  }
+
+  &.active {
+    background-color: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  @include respond-to('md') {
+    justify-content: center;
+    padding: $spacing-md;
+    svg { font-size: 1.2rem; }
+  }
+}
+
+.logoutContainer {
+  padding: $spacing-md;
+  
+  @include respond-to('md') {
+    padding: $spacing-sm;
+  }
+}
+
+.logoutButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  color: $danger-color;
+  font-weight: 600;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba($danger-color, 0.1);
+  }
+
+  @include respond-to('md') {
+    padding: $spacing-md;
+    span { display: none; }
+  }
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 250px;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to('md') {
+    margin-left: 80px;
+  }
+}
+
+.header {
+  @include flex-between;
+  padding: $spacing-lg $spacing-xl;
+  background-color: $card-bg;
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  @include respond-to('sm') {
+    padding: $spacing-md;
+  }
+}
+
+.headerInfo {
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-xs;
+  }
+  
+  p {
+    color: $secondary-color;
+    font-size: 0.9rem;
+  }
+
+  @include respond-to('sm') {
+    h1 { font-size: 1.2rem; }
+    p { display: none; }
+  }
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  span {
+    font-weight: 500;
+  }
+
+  @include respond-to('sm') {
+    span { display: none; }
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  @include flex-center;
+  font-weight: bold;
+}
+
+.content {
+  padding: $spacing-xl;
+  flex: 1;
+
+  @include respond-to('sm') {
+    padding: $spacing-md;
+  }
+}
