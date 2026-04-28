@@ -26,18 +26,18 @@ const Layout: React.FC = () => {
         </div>
         <nav className={styles.nav}>
           <NavLink to="/" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} end>
-            <FaHome /> Dashboard
+            <FaHome /> <span>Dashboard</span>
           </NavLink>
           <NavLink to="/patients" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-            <FaUsers /> Patients
+            <FaUsers /> <span>Patients</span>
           </NavLink>
           <NavLink to="/analytics" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-            <FaChartBar /> Analytics
+            <FaChartBar /> <span>Analytics</span>
           </NavLink>
         </nav>
         <div className={styles.logoutContainer}>
           <button onClick={handleLogout} className={styles.logoutButton}>
-            <FaSignOutAlt /> Logout
+            <FaSignOutAlt /> <span>Logout</span>
           </button>
         </div>
       </aside>

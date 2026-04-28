@@ -85,7 +85,7 @@
 /* Grid View Styles */
 .patientGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: $spacing-lg;
 }
 
@@ -132,12 +132,13 @@
   p {
     font-size: 0.9rem;
     color: $text-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     span {
       color: $secondary-color;
       font-weight: 500;
-      display: inline-block;
-      width: 80px;
     }
   }
 }
@@ -148,16 +149,19 @@
   border-radius: $border-radius-lg;
   @include card-shadow;
   overflow-x: auto;
+  width: 100%;
 }
 
 .patientList {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px; /* Ensure table doesn't squash too much */
 
   th, td {
     padding: $spacing-md;
     text-align: left;
     border-bottom: 1px solid $border-color;
+    white-space: nowrap; /* Prevent ugly wrapping on small screens */
   }
 
   th {
