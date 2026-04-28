@@ -67,11 +67,20 @@
   padding: $spacing-lg;
   @include card-shadow;
   overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
 
   h2 {
     font-size: 1.2rem;
     margin-bottom: $spacing-md;
     color: $text-color;
+    position: sticky;
+    top: 0;
+    background-color: $card-bg;
+    padding-top: $spacing-lg;
+    margin-top: -$spacing-lg;
+    padding-bottom: $spacing-sm;
+    z-index: 2;
   }
 }
 
