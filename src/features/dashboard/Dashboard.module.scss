@@ -78,7 +78,10 @@
     left: 0;
     background-color: $card-bg;
     padding: $spacing-lg $spacing-lg $spacing-sm $spacing-lg;
-    margin: -$spacing-lg -$spacing-lg $spacing-md -$spacing-lg;
+    margin-top: -$spacing-lg;
+    margin-right: -$spacing-lg;
+    margin-bottom: $spacing-md;
+    margin-left: -$spacing-lg;
     z-index: 2;
   }
 }
