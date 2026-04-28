@@ -1,5 +1,6 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@use 'sass:color';
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 .dashboard {
   display: flex;
@@ -132,7 +133,7 @@
 
 .statusPending {
   background-color: rgba(#ffc107, 0.1);
-  color: darken(#ffc107, 20%);
+  color: color.adjust(#ffc107, $lightness: -20%);
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.85rem;
