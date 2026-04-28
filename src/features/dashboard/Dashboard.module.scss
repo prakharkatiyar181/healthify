@@ -72,14 +72,13 @@
 
   h2 {
     font-size: 1.2rem;
-    margin-bottom: $spacing-md;
     color: $text-color;
     position: sticky;
     top: 0;
+    left: 0;
     background-color: $card-bg;
-    padding-top: $spacing-lg;
-    margin-top: -$spacing-lg;
-    padding-bottom: $spacing-sm;
+    padding: $spacing-lg $spacing-lg $spacing-sm $spacing-lg;
+    margin: -$spacing-lg -$spacing-lg $spacing-md -$spacing-lg;
     z-index: 2;
   }
 }
