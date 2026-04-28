@@ -26,6 +26,7 @@
 .actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: $spacing-md;
 }
 

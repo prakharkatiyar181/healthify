@@ -66,6 +66,7 @@
   border-radius: $border-radius-lg;
   padding: $spacing-lg;
   @include card-shadow;
+  overflow-x: auto;
 
   h2 {
     font-size: 1.2rem;
