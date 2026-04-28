@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../services/firebase';
 import styles from './Layout.module.scss';
-import { FaHeartbeat, FaChartBar, FaUsers, FaHome, FaSignOutAlt } from 'react-icons/fa';
+import { FaHeartbeat, FaChartBar, FaUsers, FaHome, FaSignOutAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Layout: React.FC = () => {
   const navigate = useNavigate();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -17,13 +18,18 @@ const Layout: React.FC = () => {
     }
   };
 
+  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
+
   return (
     <div className={styles.layout}>
-      <aside className={styles.sidebar}>
+      <aside className={`${styles.sidebar} ${isCollapsed ? styles.collapsed : ''}`}>
         <div className={styles.logo}>
           <FaHeartbeat size={32} color="#007bff" />
           <h2>Healthify</h2>
         </div>
+        <button onClick={toggleSidebar} className={styles.toggleBtn} aria-label="Toggle Sidebar">
+          {isCollapsed ? <FaChevronRight /> : <FaChevronLeft />}
+        </button>
         <nav className={styles.nav}>
           <NavLink to="/" className={({ isActive }) => isActive ? `${styles.navLink} ${styles.active}` : styles.navLink} end>
             <FaHome /> <span>Dashboard</span>
@@ -41,7 +47,7 @@ const Layout: React.FC = () => {
           </button>
         </div>
       </aside>
-      <main className={styles.mainContent}>
+      <main className={`${styles.mainContent} ${isCollapsed ? styles.collapsedContent : ''}`}>
         <header className={styles.header}>
           <div className={styles.headerInfo}>
             <h1>Welcome back!</h1>

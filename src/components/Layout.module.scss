@@ -16,10 +16,50 @@
   padding: $spacing-md 0;
   position: fixed;
   height: 100vh;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
 
   @include respond-to('md') {
     width: 80px;
     h2, span { display: none; }
+  }
+
+  &.collapsed {
+    width: 80px;
+    h2, span { display: none; }
+    .logo { padding: 0; }
+    .navLink { 
+      justify-content: center; 
+      padding: $spacing-md; 
+      svg { font-size: 1.2rem; } 
+    }
+    .logoutContainer { padding: $spacing-sm; }
+    .logoutButton { padding: $spacing-md; }
+  }
+}
+
+.toggleBtn {
+  position: absolute;
+  top: 25px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: white;
+  @include flex-center;
+  cursor: pointer;
+  border: 2px solid $card-bg;
+  transition: transform 0.3s ease, background-color 0.2s ease;
+  z-index: 30;
+
+  &:hover {
+    background-color: color.adjust($primary-color, $lightness: -10%);
+    transform: scale(1.1);
+  }
+
+  @include respond-to('md') {
+    display: none;
   }
 }
 
@@ -61,6 +101,12 @@
   font-weight: 500;
   transition: all 0.2s;
 
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+
   &:hover {
     background-color: rgba($primary-color, 0.05);
     color: $primary-color;
@@ -98,6 +144,12 @@
   font-weight: 600;
   transition: background-color 0.2s;
 
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+  }
+
   &:hover {
     background-color: rgba($danger-color, 0.1);
   }
@@ -114,8 +166,13 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   @include respond-to('md') {
+    margin-left: 80px;
+  }
+
+  &.collapsedContent {
     margin-left: 80px;
   }
 }
