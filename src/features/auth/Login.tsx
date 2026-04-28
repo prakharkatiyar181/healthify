@@ -47,7 +47,7 @@ const Login: React.FC = () => {
               id="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@healthify.com"
+              placeholder="test@healthify.com"
               required 
             />
           </div>
@@ -68,6 +68,7 @@ const Login: React.FC = () => {
         </form>
         <div className={styles.hint}>
           <p>For testing, use any random email/password if firebase is not fully configured, though dummy config might fail auth. In a real app, you would use actual credentials.</p>
+          <p style={{ marginTop: '10px' }}><strong>Assignment Testing:</strong><br/>Email: <code>test@healthify.com</code><br/>Password: <code>password123</code></p>
         </div>
       </div>
     </div>

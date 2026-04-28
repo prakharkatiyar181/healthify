@@ -1,5 +1,10 @@
 # React + TypeScript + Vite
 
+## 🧪 Assignment Testing Credentials
+To test the live application without registering, please use the following test account:
+- **Email:** `test@healthify.com`
+- **Password:** `password123`
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
